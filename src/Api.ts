@@ -15,8 +15,7 @@ export class Api {
     .then((response) => {
       return response.json();})
     .then
-    ((data) => data.tags.tag.map((ob: any) => String(ob.name)))
-    .then((data)=>{return data;});
+    ((data) => data.tags.tag.map((ob: any) => String(ob.name)));
   }
   /**
   * Получение альбомов
@@ -27,8 +26,6 @@ export class Api {
     .then((response) => {
       return response.json();})
       .then
-      ((data)=>data.albums.album.map((ob: any) => new Album(ob.name, ob.image[2]['#text'])))
-      .then
-      ((data)=>{return data});
+      ((data)=>data.albums.album.map((ob: any) => new Album(ob.name, ob.image[2]['#text'])));
   }
 }

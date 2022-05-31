@@ -22,7 +22,7 @@ body, html{
 .content {
   display: grid;
   grid-template-columns: 1.7fr 9fr;
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -87,8 +87,6 @@ body, html{
 }
 
 .top-nav_user {
-
-  
   height: 55px;
   display: grid;
   grid-template-columns: 90%;
@@ -111,7 +109,7 @@ body, html{
   height: 55px;
   font-weight: bold;
   text-align: center;
-  font-weight: 100px;
+  font-weight: 700;
   padding-top: 10px;
   text-decoration: none;
   margin-left: auto;
@@ -166,7 +164,6 @@ body, html{
 .item_playlist{
   font-size: 16px;
   color:rgb(186, 194, 200);
-  display: block;
   text-decoration: none;
   font-weight: bold;
   padding-left: 10px;
