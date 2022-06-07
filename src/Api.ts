@@ -4,14 +4,13 @@
 import { Album } from "./Album.js";
 
 export class Api {
-  api_key : string = '2aa06ad13a0062bcd0603f3bf23ac56d'; 
+  private _apiKey : string = '2aa06ad13a0062bcd0603f3bf23ac56d'; 
   /**
   * Получение тегов
   * @returns {Promise<any>} - Промис с массивом тегов
   */
   getTags() {
-    
-     return fetch('https://ws.audioscrobbler.com/2.0/?method=chart.gettoptags&api_key='+this.api_key+'&format=json&limit=5')
+     return fetch('https://ws.audioscrobbler.com/2.0/?method=chart.gettoptags&api_key='+this._apiKey+'&format=json&limit=5')
     .then((response) => {
       return response.json();})
     .then
@@ -22,10 +21,14 @@ export class Api {
   * @returns {Promise<any>} - Промис с массивом альбомов
   */
   getAlbumByTag(tag: string) {
-    return fetch('https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag='+tag+'&api_key='+this.api_key+'&format=json&limit=5')
+    return fetch('https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag='+tag+'&api_key='+this._apiKey+'&format=json&limit=5')
     .then((response) => {
       return response.json();})
       .then
-      ((data)=>data.albums.album.map((ob: any) => new Album(ob.name, ob.image[2]['#text'])));
+      ((data)=>
+          data.albums.album.map((ob: any) => 
+              new Album(ob.name, ob.image[2]['#text'])
+            )
+          );
   }
 }

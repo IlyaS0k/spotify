@@ -6,9 +6,8 @@ api.getTags()
     .then(function (data) {
     data.forEach(function (item, i, list) {
         var tag = item;
-        var albumList = new AlbumList(tag, []);
         api.getAlbumByTag(tag).then(function (data) {
-            data.forEach(function (item, i, list) { albumList.list.push(item); });
+            var albumList = new AlbumList(tag, data);
             return albumList;
         })
             .then(function (data) { return data.render(); });

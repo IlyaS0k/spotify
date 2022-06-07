@@ -78,7 +78,7 @@ body, html{
   border-radius: 100px;
   width: 200px;
   height: 55px;
-  font-weight: bold;
+  font-weight: 700;
   text-align: center;
   padding-top: 10px;
   text-decoration: none;
@@ -101,14 +101,11 @@ body, html{
   opacity: .5;
 }
 .top-nav_user-a{
-
   font-size: 20px;
   color:rgb(240,248,255);
   border-radius: 100px;
   width: 200px;
   height: 55px;
-  font-weight: bold;
-  text-align: center;
   font-weight: 700;
   padding-top: 10px;
   text-decoration: none;
@@ -120,15 +117,13 @@ body, html{
   display: grid;
   grid-gap: 20px;
   padding-left: 60px;
-  
 }
 .main-field-title{
-  
   font-size: 25px;
   color:rgb(240,248,255);
   display: block;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   padding-top: 10px;
   padding-bottom: 0px;
 }
@@ -165,7 +160,7 @@ body, html{
   font-size: 16px;
   color:rgb(186, 194, 200);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 0px;

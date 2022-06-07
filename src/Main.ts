@@ -7,10 +7,9 @@ let api = new Api();
 api.getTags()
 .then((data:string[])=>{data.forEach(function(item, i, list){
   let tag = item;
-  let albumList = new AlbumList(tag, []);
   api.getAlbumByTag(tag).then((data:Album[])=>{ 
-   data.forEach(function(item,i,list){albumList.list.push(item)}); 
-   return albumList;})
+  let albumList = new AlbumList(tag, data);
+  return albumList;})
   .then((data: AlbumList) => data.render())
 })});
 
