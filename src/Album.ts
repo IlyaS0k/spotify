@@ -9,6 +9,13 @@ export class Album {
          this._title = title;
          this._imgUrl = imgUrl;
   }
+  //геттеры для полей
+  getTitle() {
+    return this._title;
+  }
+  getUrl() {
+    return this._imgUrl;
+  }
    /**
      * @constructor
      * @param _title - название альбома
@@ -18,25 +25,25 @@ export class Album {
   * Отрисовка альбома
   * @returns {HTMLElement} верстка альбома
   */
-  render(): HTMLElement {
+  // render(): HTMLElement {
      
-    let div = document.createElement('div');
-    div.setAttribute('class', 'item');
-    let img = document.createElement('img');
-    img.setAttribute('src', this._imgUrl);
-    img.setAttribute('width', '180');
-    img.setAttribute('height', '160');
-    img.setAttribute('alt', 'Не удалось загрузить');
-    let div_desc = document.createElement('div');
-    div_desc.setAttribute('class', 'item_description');
-    let div_title = document.createElement('div');
-    div_title.setAttribute('class', 'item_playlist');
-    div_title.innerText = this._title;
-    div.appendChild(img);
-    div.appendChild(div_title);
+  //   let div = document.createElement('div');
+  //   div.setAttribute('class', 'item');
+  //   let img = document.createElement('img');
+  //   img.setAttribute('src', this._imgUrl);
+  //   img.setAttribute('width', '180');
+  //   img.setAttribute('height', '160');
+  //   img.setAttribute('alt', 'Не удалось загрузить');
+  //   let div_desc = document.createElement('div');
+  //   div_desc.setAttribute('class', 'item_description');
+  //   let div_title = document.createElement('div');
+  //   div_title.setAttribute('class', 'item_playlist');
+  //   div_title.innerText = this._title;
+  //   div.appendChild(img);
+  //   div.appendChild(div_title);
 
-    return div;
-  }
+  //   return div;
+  // }
 }
 
 
