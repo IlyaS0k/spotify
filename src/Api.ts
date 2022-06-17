@@ -21,15 +21,9 @@ export abstract class Api {
   * Получение альбомов
   * @returns {Promise<any>} - Промис с массивом альбомов
   */
-    static getAlbumByTag(tag: string) : Promise<Album[]> {
+    static getAlbumByTag(tag: string) : Promise<any> {
     return fetch('https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag='+tag+'&api_key='+this._apiKey+'&format=json&limit=5')
     .then((response) => {
       return response.json();})
-      .then
-      ((data)=>
-          data.albums.album.map((ob: any) => 
-              new Album(ob.name, ob.image[2]['#text'])
-            )
-          );
   }
 }

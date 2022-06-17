@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Api} from './Api';
 import {AlbumContainer} from './AlbumContainer';
 import {AlbumList} from './AlbumList'
@@ -7,10 +7,15 @@ import {Album} from './Album'
 
 function App() {
   const [containers, setContainers] = useState([] as AlbumList[]);
-  Api.getTags().then(topTags=>Promise.all(topTags.map(tag=>Api.getAlbumByTag(tag).then(albums => {
+  useEffect(()=>{Api.getTags().then(topTags=>Promise.all(topTags.map(tag=>Api.getAlbumByTag(tag).then
+    ((data)=>
+        data.albums.album.map((ob: any) => 
+            new Album(ob.name, ob.image[2]['#text'])
+          )
+        ).then(albums => {
     return new AlbumList(tag, albums);
   }))
-  ).then(data=>setContainers(data)));
+  ).then(data=>setContainers(data)))},[])
   return <div className="content">
           <div className="left-nav_menu">
 
@@ -42,7 +47,12 @@ function App() {
         {
           containers.map(container => <AlbumContainer albumTitle={container.getTitle()} 
           albumList={container.getList()} 
-          promise={Api.getAlbumByTag(container.getTitle()).
+          promise={Api.getAlbumByTag(container.getTitle()).then
+            ((data)=>
+                data.albums.album.map((ob: any) => 
+                    new Album(ob.name, ob.image[2]['#text'])
+                  )
+                ).
             then(data=>{return new AlbumList(container.getTitle(),data)}
             )}/>)
         }
