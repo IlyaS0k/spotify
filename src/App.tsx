@@ -45,7 +45,8 @@ function App() {
         </div>
         <div className="main-field">
         {
-          containers.map(container => <AlbumContainer albumTitle={container.getTitle()} 
+          containers.map(container => <AlbumContainer key={container.getTitle()}
+          albumTitle={container.getTitle()} 
           albumList={container.getList()} 
           promise={Api.getAlbumByTag(container.getTitle()).then
             ((data)=>

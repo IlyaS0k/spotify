@@ -15,7 +15,7 @@ export function AlbumContainer(props:{albumTitle: string, albumList: Album[], pr
   return <div>
    <div className='main-field-title'>{tag}</div>
    <div className='big_item'>
-   {albums.slice(0,5).map(data => <AlbumCard album={data}/>)}
+   {albums.slice(0,5).map(data => <AlbumCard key={data.getUrl()} album={data}/>)}
    </div>
   </div> 
 }
